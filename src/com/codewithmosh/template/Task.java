@@ -4,7 +4,10 @@ public abstract class Task {
 
     private AuditTrail auditTrail;
 
-    public task(AuditTrail auditTrail) {
+    public Task(){
+        auditTrail = new AuditTrail();
+    }
+    public Task(AuditTrail auditTrail) {
         this.auditTrail = auditTrail;
     }
 
@@ -13,5 +16,5 @@ public abstract class Task {
         doExecute();
     }
 
-    public abstract void doExecute();
+    protected abstract void doExecute();
 }
