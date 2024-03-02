@@ -1,4 +1,4 @@
-package com.codewithmosh.command;
+package com.codewithmosh.command.editor;
 
 import com.codewithmosh.command.editor.Command;
 import com.codewithmosh.command.editor.History;
@@ -13,6 +13,7 @@ public class UndoCommand implements Command {
 
     @Override
     public void execute() {
-        history.pop().unexecute();
+        if(history.size() > 0)
+            history.pop().unexecute();
     }
 }

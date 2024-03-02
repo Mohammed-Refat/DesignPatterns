@@ -1,2 +1,10 @@
-package com.codewithmosh.command;public class BlackAndWhiteCommand {
+package com.codewithmosh.command;
+
+import com.codewithmosh.command.fx.Command;
+
+public class BlackAndWhiteCommand implements Command {
+    @Override
+    public void execute() {
+        System.out.println("Black And white filter");
+    }
 }
