@@ -1,2 +1,7 @@
-package com.codewithmosh.iterator;public class Iterator {
+package com.codewithmosh.iterator;
+
+public interface Iterator<T> {
+    boolean hasNext();
+    T current();
+    void next();
 }
