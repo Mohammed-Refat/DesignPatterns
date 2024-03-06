@@ -1,13 +1,14 @@
 package com.codewithmosh;
 
+import com.codewithmosh.chainOfResponsibility.*;
 import com.codewithmosh.command.*;
 import com.codewithmosh.command.editor.BoldCommand;
 import com.codewithmosh.command.editor.History;
-import com.codewithmosh.command.editor.HtmlDocument;
 import com.codewithmosh.command.editor.UndoCommand;
 import com.codewithmosh.command.fx.Button;
 import com.codewithmosh.iterator.BrowseHistory;
 import com.codewithmosh.iterator.Iterator;
+import com.codewithmosh.mediator.ArticlesDialogBox;
 import com.codewithmosh.memento.Editor;
 import com.codewithmosh.observer.Chart;
 import com.codewithmosh.observer.DataSouce;
@@ -21,23 +22,18 @@ import com.codewithmosh.strategy.JpegCompressor;
 import com.codewithmosh.template.AuditTrail;
 import com.codewithmosh.template.GenerateReportTask;
 import com.codewithmosh.template.TransferMoneyTask;
+import com.codewithmosh.visitor.*;
 
 import java.util.List;
 
 public class Main {
 
     public static void main(String args[]){
-      var dataSource = new DataSouce();
-      var sheet1 = new SpreadSheet(dataSource);
-      var sheet2 = new SpreadSheet(dataSource);
-      var chart = new Chart(dataSource);
 
-      dataSource.addObserver(sheet1);
-      dataSource.addObserver(sheet2);
-      dataSource.addObserver(chart);
-
-
-        dataSource.setValue(5);
+     var document = new HtmlDocument();
+     document.add(new HeadingNode());
+     document.add(new AnchorNode());
+     document.execute(new PlainTextOperation());
     }
 }
 
