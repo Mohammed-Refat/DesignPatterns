@@ -17,6 +17,10 @@ import com.codewithmosh.decorator.CloudStream;
 import com.codewithmosh.decorator.CompressedCloudStream;
 import com.codewithmosh.decorator.EncryptedCloudStream;
 import com.codewithmosh.decorator.Stream;
+import com.codewithmosh.facade.Connection;
+import com.codewithmosh.facade.Message;
+import com.codewithmosh.facade.NotificationServer;
+import com.codewithmosh.facade.NotificationService;
 import com.codewithmosh.iterator.BrowseHistory;
 import com.codewithmosh.iterator.Iterator;
 import com.codewithmosh.mediator.ArticlesDialogBox;
@@ -40,14 +44,11 @@ import java.util.List;
 public class Main {
 
     public static void main(String args[]){
-
-        storeCreditCard(new CompressedCloudStream(new CloudStream()));
+        var service = new NotificationService();
+        service.send("Hello World","target");
 
     }
 
-    public static void storeCreditCard(Stream stream){
-        stream.write("123-123-123");
-    }
 }
 
 
