@@ -1,8 +1,8 @@
 package com.codewithmosh.observer;
 
-import javax.xml.crypto.Data;
+import java.util.Observable;
 
-public class Chart implements Observer{
+public class Chart implements EventHandler {
 
     private DataSouce dataSouce;
 
@@ -10,7 +10,10 @@ public class Chart implements Observer{
         this.dataSouce = dataSouce;
     }
     @Override
-    public void update() {
+    public void handle() {
         System.out.println("Chart updating: " + dataSouce.getValue());
     }
+
+
+
 }

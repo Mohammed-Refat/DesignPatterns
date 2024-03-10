@@ -1,11 +1,22 @@
 package com.codewithmosh;
 
+import com.codewithmosh.adapter.CaramelFilter;
+import com.codewithmosh.adapter.Image;
+import com.codewithmosh.adapter.ImageView;
+import com.codewithmosh.adapter.VividFilter;
+import com.codewithmosh.adapter.avaFilters.Caramel;
 import com.codewithmosh.chainOfResponsibility.*;
 import com.codewithmosh.command.*;
 import com.codewithmosh.command.editor.BoldCommand;
 import com.codewithmosh.command.editor.History;
 import com.codewithmosh.command.editor.UndoCommand;
 import com.codewithmosh.command.fx.Button;
+import com.codewithmosh.composite.Group;
+import com.codewithmosh.composite.Shape;
+import com.codewithmosh.decorator.CloudStream;
+import com.codewithmosh.decorator.CompressedCloudStream;
+import com.codewithmosh.decorator.EncryptedCloudStream;
+import com.codewithmosh.decorator.Stream;
 import com.codewithmosh.iterator.BrowseHistory;
 import com.codewithmosh.iterator.Iterator;
 import com.codewithmosh.mediator.ArticlesDialogBox;
@@ -30,10 +41,12 @@ public class Main {
 
     public static void main(String args[]){
 
-     var document = new HtmlDocument();
-     document.add(new HeadingNode());
-     document.add(new AnchorNode());
-     document.execute(new PlainTextOperation());
+        storeCreditCard(new CompressedCloudStream(new CloudStream()));
+
+    }
+
+    public static void storeCreditCard(Stream stream){
+        stream.write("123-123-123");
     }
 }
 

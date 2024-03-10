@@ -7,19 +7,19 @@ import java.util.List;
 // Observable
 public class Subject {
 
-    List<Observer> observers = new ArrayList<>();
+    List<EventHandler> observers = new ArrayList<>();
 
-    public void addObserver(Observer observer){
+    public void addObserver(EventHandler observer){
         observers.add(observer);
     }
 
-    public void removeObserver(Observer observer){
+    public void removeObserver(EventHandler observer){
         observers.remove(observer);
     }
 
     public void notifyObservers(){
         for (var observer : observers){
-            observer.update();
+            observer.handle();
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.codewithmosh.observer;
 
-public interface Observer {
-    void update();
+public interface EventHandler {
+    void handle();
 }
