@@ -21,6 +21,8 @@ import com.codewithmosh.facade.Connection;
 import com.codewithmosh.facade.Message;
 import com.codewithmosh.facade.NotificationServer;
 import com.codewithmosh.facade.NotificationService;
+import com.codewithmosh.flyweight.PointIconFactory;
+import com.codewithmosh.flyweight.PointService;
 import com.codewithmosh.iterator.BrowseHistory;
 import com.codewithmosh.iterator.Iterator;
 import com.codewithmosh.mediator.ArticlesDialogBox;
@@ -44,8 +46,10 @@ import java.util.List;
 public class Main {
 
     public static void main(String args[]){
-        var service = new NotificationService();
-        service.send("Hello World","target");
+        var service = new PointService(new PointIconFactory());
+        for (var point:service.getPoints()){
+            point.draw();
+        }
 
     }
 
