@@ -5,6 +5,10 @@ import com.codewithmosh.adapter.Image;
 import com.codewithmosh.adapter.ImageView;
 import com.codewithmosh.adapter.VividFilter;
 import com.codewithmosh.adapter.avaFilters.Caramel;
+import com.codewithmosh.bridge.AdvancedRemoteControl;
+import com.codewithmosh.bridge.RemoteControl;
+import com.codewithmosh.bridge.SamsungTV;
+import com.codewithmosh.bridge.SonyTV;
 import com.codewithmosh.chainOfResponsibility.*;
 import com.codewithmosh.command.*;
 import com.codewithmosh.command.editor.BoldCommand;
@@ -46,11 +50,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String args[]){
-        var service = new PointService(new PointIconFactory());
-        for (var point:service.getPoints()){
-            point.draw();
-        }
-
+        var remoteControl = new AdvancedRemoteControl(new SamsungTV());
+        remoteControl.turnOn();
     }
 
 }
