@@ -34,6 +34,8 @@ import com.codewithmosh.memento.Editor;
 import com.codewithmosh.observer.Chart;
 import com.codewithmosh.observer.DataSouce;
 import com.codewithmosh.observer.SpreadSheet;
+import com.codewithmosh.proxy.Ebook;
+import com.codewithmosh.proxy.Library;
 import com.codewithmosh.state.Canvas;
 import com.codewithmosh.state.SelectionTool;
 import com.codewithmosh.state.abuse.StopWatch;
@@ -50,8 +52,13 @@ import java.util.List;
 public class Main {
 
     public static void main(String args[]){
-        var remoteControl = new AdvancedRemoteControl(new SamsungTV());
-        remoteControl.turnOn();
+        var library = new Library();
+        String[] fileNames = {"a","b","c"};
+
+        for(var fileName : fileNames)
+            library.add(new Ebook(fileName));
+
+        library.openEbook("a");
     }
 
 }
